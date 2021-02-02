@@ -2,11 +2,17 @@ const express = require('express');
 const indexRoute = require('./routes/index');
 const usersRoute = require('./routes/users');
 const expressLayouts = require('express-ejs-layouts');
-const path = require('path');
+const dotenv = require('dotenv');   //Loads environment variables into process.env
+const connectDB = require('./config/db');
 
-const app = express();
+
+dotenv.config({ path: './config/config.env' });  //object with the config file path
+
+connectDB();
+
 const PORT = process.env.PORT || 5000;
 
+const app = express();
 
 //EJS
 app.set('view engine', 'ejs');
