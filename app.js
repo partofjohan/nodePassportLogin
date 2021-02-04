@@ -18,6 +18,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
+//Bodyparser
+app.use(express.urlencoded({ extended: false }));
+
 //Routes
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
